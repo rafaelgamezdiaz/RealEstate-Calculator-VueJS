@@ -1,0 +1,10 @@
+/* Add here all your CSS customizations */
+.main{
+    margin-top: 50px;
+}
+.text-smoth{
+    color: rgb(110, 163, 163);
+}
+.ul-unstyle{
+    list-style: none;
+}

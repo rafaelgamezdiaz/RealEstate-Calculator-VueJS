@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+</html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculadora de Costo de Inmuebles</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Cost Property Calcuator">
+    <meta name="author" content="rafael.gamez">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/skin-business-consulting.css">
+
+    <!-- Demo CSS -->
+    <link rel="stylesheet" href="css/demos/demo-business-consulting.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="vendor/modernizr/modernizr.min.js"></script>
+
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+
+    <div class="body">
+        <header id="header">
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row text-center">
+                            <a href="http://asesoresjmc.com/">
+                                <img alt="Calculadora Asesores JMC"  src="img/logo5.png">
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div role="main" class="main">
+            <div class="container" id="contenedor">
+                <div class="row">
+                    <h3 class="font-weight-bold text-color-dark text-center">{{ name }}</h3>
+                </div>
+                <div class="row pt-xs pb-xl mb-md">
+                    <div class="col-md-12">
+                        <form id="contactForm" class="custom-contact-form-style-1" action="php/contact-form.php" method="POST">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-direction icons text-color-primary"></i-->
+                                                <label for="calle" class="control-label">Calle</label>
+                                                <input type="text" v-model="calle" data-msg-required="Calle donde está ubicado el inmueble." class="form-control" name="calle"
+                                                    id="calle" placeholder="ej: Avenida Principal ..." maxlength="100" required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-action-redo icons text-color-primary"></i-->
+                                                <label for="numero" class="control-label">Número</label>
+                                                <input type="text" v-model="numero" data-msg-required="Número del inmueble."
+                                                    maxlength="100" class="form-control" name="numero" id="numero" placeholder="Ingrese el No. del inmueble."
+                                                    required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-layers icons text-color-primary"></i-->
+                                                <label for="planta" class="control-label">Planta</label>
+                                                <select name="planta" id="planta" v-model="planta" class="form-control text-smoth" placeholder="Seleccione la Planta*">
+                                                    <option value="">:: Seleccionar ::</option>
+                                                    <option value="1ra">1&#176;</option>
+                                                    <option value="2da">2&#176;</option>
+                                                    <option value="3ra">3&#176;</option>
+                                                    <option value="4ta">4&#176;</option>
+                                                    <option value="5ta">5&#176;</option>
+                                                    <option value="6ta">6&#176;</option>
+                                                    <option value="7ma">7&#176;</option>
+                                                    <option value="8va">8&#176;</option>
+                                                    <option value="9na">9&#176;</option>
+                                                    <option value="10ma">10&#176;</option>
+                                                </select>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-map icons text-color-primary"></i-->
+                                                <label for="superficie" class="control-label">Superficie (m<sup>2</sup>)</label>
+                                                <input type="numeric" v-model="superficie" data-msg-required="Por favor ingrese los metros cuadrados." class="form-control" name="superficie"
+                                                    id="superficie" placeholder="ej: 800" required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-like icons text-color-primary"></i-->
+                                                <label for="estado" class="control-label">Estado</label>
+                                                <select name="estado" v-model="estado" id="estado" class="form-control text-smoth" placeholder="Estado*">
+                                                    <option value=""> :: Seleccionar :: </option>
+                                                    <option value="Excelente">Excelente</option>
+                                                    <option value="Bueno">Bueno</option>
+                                                    <option value="Regular">Regular</option>
+                                                    <option value="Malo">Malo</option>
+                                                    <option value="Necesita Reforma">Necesita Reforma</option>
+                                                </select>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-tag icons text-color-primary"></i-->
+                                                <label for="dormitorios" class="control-label">Dormitorios</label>
+                                                <input type="number" min=0 v-model="dormitorios" data-msg-required="Ingrese el número de dormitorios." class="form-control"
+                                                    name="dormitorios" id="dormitorios" placeholder="Número de Dormitorios" required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-envelope icons text-color-primary"></i-->
+                                                <label for="banos" class="control-label">Dormitorios</label>
+                                                <input type="number" min=0 v-model="banos" data-msg-required="Ingrese el número de baños." class="form-control" name="banos" id="banos"
+                                                    placeholder="Número de baños." required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="icon-arrow-up-circle icons text-color-primary"></i-->
+                                                <label for="ascensor" class="control-label">Ascensor</label>
+                                                <select name="ascensor" v-model="ascensor" id="ascensor" class="form-control text-smoth" placeholder="Ascensor*">
+                                                    <option value="">:: Seleccionar ::</option>
+                                                    <option value="Si">Si</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="fa fa-money icons text-color-primary" aria-hidden="true"></i-->
+                                                <label for="precio" class="control-label">Precio sugerido del Inmueble</label>
+                                                <input type="text" v-model="precio" data-msg-required="Seleccione el precio propuesto para inmueble." class="form-control"
+                                                    name="precio" id="precio" placeholder="Precio sugerido" required>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <!--div class="custom-input-box"-->
+                                                <!--i class="fa fa-line-chart icons text-color-primary"></i-->
+                                                <label for="valoracion" class="control-label">Valoración del Inmueble</label>
+                                                <select name="valoracion" v-model="valoracion" id="valoracion" class="form-control text-smoth" placeholder="Seleccionar Valoracion*">
+                                                    <option value="">:: Seleccionar ::</option>
+                                                    <option v-cloak v-for="valoracion in valoraciones" :value="valoracion" :key="valoracion">{{ valoracion }}</option>
+                                                </select>
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="well">
+                                    <h2>Calculo del Valor del Inmueble</h2>
+                                    <p>Llene todos los campos del formulario para 
+                                        obtener el Precio Real del Inmueble
+                                        al día de hoy.
+                                    </p>
+                                    <div v-if="resultado > 0" id="contenido-resultado">
+                                        <br>
+                                        <h5>Ubicación del Inmueble:</h5>
+                                        <p>Calle/Ave: <strong>{{ calle }}</strong>, #:
+                                        <strong>{{ numero }}</strong><br>
+                                        Planta: <strong>{{ planta }}</strong></p>
+                                        <h5>Características del Inmueble:</h5>
+                                            <ul class="ul-unstyle">
+                                                <li>Superficie: {{superficie}} m<sup>2</sup></li>
+                                                <li>Dormitorios: {{ dormitorios }}</li>
+                                                <li>Baños: {{ banos }}</li>
+                                                <li>Ascensor: {{ ascensor }}</li>
+                                                <li>Estado: {{ estado }}</li>
+                                            </ul>
+                                        <div class="alert alert-dark">
+                                            <strong>VALOR REAL DEL INMUEBLE: {{ resultado }}</strong>&nbsp;
+                                            <i class="fa fa-eur icons text-color-primary"></i>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 center">
+                        <p>2018 © Asesores JMC
+                            <span class="text-color-light"> Valoración de Inmuebles</span> - Copyright Todos los derechos reservados</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#contenedor",
+            data: {
+                name: "VALORACIÓN DE INMUEBLES",
+                calle: '',
+                numero: '',
+                planta: '',
+                superficie: '',
+                dormitorios: null,
+                banos: '',
+                estado: '',
+                ascensor: '',
+                valoracion: '',
+                precio: '',
+                valoraciones: [1,2,3,4,5]
+            },
+            computed: {
+                direccion: function(){
+                    if (this.calle != '' && this.numero != '' && this.planta != '') {
+                        return "Inmueble ubicado en la Calle/Avenida:" + this.calle + ", #" + this.numero + ", Planta: " + this.planta
+                    }
+                },
+                caracteristicas: function () {
+                    if (this.superficie != '' && this.dormitorios != null && this.banos != '') {
+                        return "Características:" + this.superficie + "metros cuadrados, #" + this.numero + ", Planta: " + this.planta
+                    }
+                },
+                resultado: function() {
+                    if (this.calle != '' && this.numero != '' && this.planta != '' &&
+                        this.superficie != '' && this.dormitorios != null && 
+                        this.banos != '' && this.ascensor != '' && this.estado != '') {
+                            return this.precio - (this.valoracion * this.precio)/10;
+                    }
+                }
+                
+            }
+        });
+    </script>
+    <!-- Vendor -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+    <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="js/theme.js"></script>
+
+   
+
+    <!-- Demo -->
+    <script src="js/demos/demo-business-consulting.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="js/theme.init.js"></script>
+</body>
+</html>
